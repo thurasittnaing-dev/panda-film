@@ -17,6 +17,7 @@ class UserRepository implements UserInterface
   public function list()
   {
     $query = User::with(['createdByUser', 'updatedByUser'])
+      ->filterQuery()
       ->latest()
       ->paginate(10)
       ->withQueryString();

@@ -14,6 +14,8 @@
 
         <x-form.messages />
 
+        @include('backend.user.filter')
+
         <x-form.table :headers="$headers" :total="$count" label="Total Users">
             <x-slot name="button">
                 <a href="{{ route('users.create') }}" class="btn btn-sm btn-dark"><i class="bi bi-plus"></i> Add New</a>
@@ -53,6 +55,9 @@
                         </td>
                     </tr>
                 @empty
+                    <tr>
+                        <td colspan="7" align="center">No Result</td>
+                    </tr>
                 @endforelse
             </x-slot>
 

@@ -10,8 +10,8 @@
     <meta name="description" content="{{ env('APP_NAME') }}">
     <meta name="keywords" content="{{ env('APP_NAME') }}">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
-        integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q=" crossorigin="anonymous">
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
+        integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q=" crossorigin="anonymous"> --}}
 
     <link rel="stylesheet" href="{{ asset('lte/dl/overlayscrollbars.min.css') }}">
 
@@ -108,10 +108,10 @@
             </div> <!-- /.login-card-body -->
         </div>
     </div> <!-- /.login-box --> <!--begin::Third Party Plugin(OverlayScrollbars)-->
-    <script src="{{ asset('adminlte/dl/overlayscrollbars.browser.es6.min.js') }}"></script>
-    <script src="{{ asset('adminlte/dl/popper.min.js') }}"></script>
-    <script src="{{ asset('adminlte/dl/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('adminlte/js/adminlte.js') }}"></script>
+    <script src="{{ asset('lte/dl/overlayscrollbars.browser.es6.min.js') }}"></script>
+    <script src="{{ asset('lte/dl/popper.min.js') }}"></script>
+    <script src="{{ asset('lte/dl/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('lte/js/adminlte.js') }}"></script>
     <script>
         const SELECTOR_SIDEBAR_WRAPPER = ".sidebar-wrapper";
         const Default = {
