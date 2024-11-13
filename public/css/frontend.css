@@ -1,0 +1,136 @@
+:root {
+    --main-color:#262933;
+}
+
+* {
+    font-size: 16px;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: var(--main-color);
+}
+
+.navbar-brand:hover {
+    color: var(--main-color);
+}
+
+.nav-link {
+    color: var(--main-color)!important;
+}
+
+
+.main-bar {
+    border-bottom: 0.2px solid rgba(0,0,0,0.1);
+    padding: 2rem 1rem;
+}
+
+.btn-filter {
+    padding: 0.5rem 1.5rem;
+    background-color: var(--main-color);
+    color:#fff;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+}
+
+.btn-filter:hover {
+    color:#fff!important;
+}
+
+.my-slider{
+    width: 100%;
+    height: 20rem;
+    max-height: 20rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.content-ratio {
+    width: 80%;
+    padding: 1rem 0;
+}
+
+#carouselExampleCaptions, .carousel-inner , .carousel-item {
+    width: 100%;
+    height: 100%;
+}
+
+.content-line {
+    padding: 2rem 0;
+}
+
+.cat-title {
+    font-weight: bold;
+    user-select: none;
+    font-size: 1.2rem;
+}
+
+.cat-btn, .cat-btn i {
+    font-size: 0.7rem;
+}
+
+.label-badge {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    margin-right: 0.5rem;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 0.1rem;
+}
+
+
+.video-card {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border-radius: 0.3rem;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    position: relative;
+    transition: all ease-in-out 0.5s;
+
+}
+
+.video-card:hover {
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    transform: scale(1.04);
+}
+
+.video-poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cat-card {
+    margin: 1rem 0;
+}
+
+.video-year {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 0.6rem;
+    background-color: red;
+    padding: 0.2rem 0.6rem;
+    color: #fff;
+    border-radius: 0.3rem;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.video-name {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.8rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: rgba(255, 255, 255, 1);
+    padding: 0.3rem;
+    text-align: center;
+}
+
+.line-bar {
+    margin: 1rem 0;
+}
