@@ -11,8 +11,6 @@ class UserService
   public function storeOrUpdate($data, $user)
   {
     try {
-      DB::beginTransaction();
-
       if (is_null($user)) {
         User::create($data);
       } else {
@@ -23,11 +21,9 @@ class UserService
 
         $user->update($data);
       }
-      DB::commit();
 
       return ['success', 'User Created Success'];
     } catch (\Exception $e) {
-      DB::rollBack();
       return ['error', 'Something wen\'t wrong!'];
     }
   }

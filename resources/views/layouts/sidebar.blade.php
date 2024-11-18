@@ -21,6 +21,24 @@
                 </ul>
             </li>
 
+            <li class="nav-header">Menus</li>
+
+            <li class="nav-item {{ menuOpen('movie') }}">
+                <a href="#" class="nav-link"><i class="bi bi-film"></i>
+                    <p>
+                        Movie
+                        <i class="nav-arrow bi bi-chevron-right"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{ route('videos.create') }}" class="nav-link {{ isActive('videos.create') }}">
+                            <p>Upload New Movie</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
             <li class="nav-header">Master Data</li>
 
             <li class="nav-item {{ menuOpen('configuration') }}">

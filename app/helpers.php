@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\VideoQuality;
 
 if (!function_exists('menuOpen')) {
   function menuOpen($module)
@@ -12,6 +13,10 @@ if (!function_exists('menuOpen')) {
       'configuration' => [
         'users.index',
         'users.create',
+      ],
+      'movie' => [
+        'videos.index',
+        'videos.create',
       ]
     ];
 
@@ -48,5 +53,12 @@ if (!function_exists('getIndexer')) {
   function getIndexer($paginate = 15)
   {
     return (request()->input('page', 1) - 1) * $paginate;
+  }
+}
+
+if (!function_exists('getVideoQualities')) {
+  function getVideoQualities()
+  {
+    return VideoQuality::all();
   }
 }

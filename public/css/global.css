@@ -1,64 +1,83 @@
 :root {
-  --main-color:black;
+    --main-color: black;
 }
 
 * {
-  font-size: 16px;
+    font-size: 16px;
 }
-
 
 .brand-link {
-  padding: 3rem;
-  width: 100%;
-  height: 100%;
+    padding: 3rem;
+    width: 100%;
+    height: 100%;
 }
 
-.brand-link img{
-  width:100%;
-  height: auto;
-  object-fit: cover;
+.brand-link img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
-.sidebar-wrapper .sidebar-menu > .nav-item.menu-open .nav-link.active:not(:hover) {
-  background-color: var(--main-color)!important;
-  color: #fff!important;
+.sidebar-wrapper
+    .sidebar-menu
+    > .nav-item.menu-open
+    .nav-link.active:not(:hover) {
+    background-color: var(--main-color) !important;
+    color: #fff !important;
 }
 
 .sidebar-wrapper .sidebar-menu > .nav-item.menu-open .nav-link.active:hover {
-  background-color: var(--main-color)!important;
-  color: #fff!important;
+    background-color: var(--main-color) !important;
+    color: #fff !important;
 }
 
 .sidebar-wrapper .sidebar-menu > .nav-item.menu-open .nav-link:hover {
-  background-color: #ebf5fb!important;
+    background-color: #ebf5fb !important;
 }
 
-.sidebar-wrapper .sidebar-menu > .nav-item.menu-open > .nav-link, .sidebar-wrapper .sidebar-menu > .nav-item:hover > .nav-link, .sidebar-wrapper .sidebar-menu > .nav-item > .nav-link:focus {
-  color: black;
+.sidebar-wrapper .sidebar-menu > .nav-item.menu-open > .nav-link,
+.sidebar-wrapper .sidebar-menu > .nav-item:hover > .nav-link,
+.sidebar-wrapper .sidebar-menu > .nav-item > .nav-link:focus {
+    color: black;
 }
 
 .nav-item a {
-  color: black!important;
+    color: black !important;
 }
 
 .nav-header {
-  color: black!important;
+    color: black !important;
 }
 
 .nav-item a:hover {
-  color: black!important;
+    color: black !important;
 }
 
 .sidebar-wrapper .nav-treeview > .nav-item > .nav-link {
-  color: black!important;
+    color: black !important;
 }
 
-
-.card-primary, .bg-primary, .text-bg-primary {
-  --lte-card-variant-bg:black!important;
+.card-primary,
+.bg-primary,
+.text-bg-primary {
+    --lte-card-variant-bg: black !important;
 }
 
-.page-link.active, .active > .page-link {
-  background-color: black!important;
-  border-color: black;
+.page-link.active,
+.active > .page-link {
+    background-color: black !important;
+    border-color: black;
+}
+
+.upload-badge {
+    display: inline-block;
+    width: 7px;
+    height: 15px;
+    background-color: black;
+    margin-right: 0.35rem;
+}
+
+.upload-title {
+    user-select: none;
+    font-size: 1.1rem;
 }

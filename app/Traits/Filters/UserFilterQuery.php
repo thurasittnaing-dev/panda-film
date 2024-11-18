@@ -8,13 +8,14 @@ trait UserFilterQuery
 
   public function filter($builder)
   {
-    if (request('username') != '') {
-      $builder->where('username', 'LIKE', '%' . request('username') . '%');
-    }
 
-    if (request('fullname') != '') {
-      $builder->where('fullname', 'LIKE', '%' . request('fullname') . '%');
-    }
+    $builder->when(request('username'), function ($q) {
+      $q->where('username', 'LIKE', '%' . request('username') . '%');
+    });
+
+    $builder->when(request('fullname'), function ($q) {
+      $q->where('fullname', 'LIKE', '%' . request('fullname') . '%');
+    });
 
     return $builder;
   }
