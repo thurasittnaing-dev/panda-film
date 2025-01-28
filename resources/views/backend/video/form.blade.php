@@ -9,6 +9,11 @@
             border: none;
             box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
         }
+
+        .form-check-input:checked {
+            background-color: black !important;
+            border-color: black !important;
+        }
     </style>
 @endsection
 
@@ -17,13 +22,29 @@
         @csrf
 
         <div class="card p-2 mt-3">
-            <div class="d-flex justify-content-between align-items-center">
-                <div class="d-flex">
+            <div class="d-flex justify-content-between align-items-center p-1">
+                <div class="">
                     <div class="input-group mb-3">
                         <input type="text" id="imdb_id" class="form-control" placeholder="IMDB ID" aria-label="IMDB ID"
                             aria-describedby="button-addon2">
                         <button class="btn btn-dark" type="button" id="fetch-btn">
                             Fetch</button>
+                    </div>
+                    <div class="d-flex">
+                        <div class="form-check me-3">
+                            <input class="form-check-input" type="radio" name="lang" id="en" checked>
+                            <label class="form-check-label" for="en">
+                                en
+                            </label>
+                        </div>
+
+                        <div class="form-check ">
+                            <input class="form-check-input" type="radio" name="lang" id="my">
+                            <label class="form-check-label" for="my">
+                                my
+                            </label>
+                        </div>
+
                     </div>
                 </div>
                 <div>
@@ -31,6 +52,8 @@
                 </div>
             </div>
         </div>
+
+        <x-form.fetch-messages />
 
         <div class="row mt-3">
             <div class="col-7">
@@ -174,7 +197,73 @@
 @section('js')
     <script>
         $(document).ready(function() {
+            function makeSlug(inputString) {
+                // Decode any browser encoded characters
+                let decodedString = decodeURIComponent(inputString);
 
+                // Convert all characters to lowercase
+                let lowercaseString = decodedString.toLowerCase();
+
+                // Replace spaces with hyphens
+                let cleanedString = lowercaseString.replace(/\s+/g, '-');
+
+                return cleanedString;
+            }
+
+
+
+            $('#fetch-btn').on('click', function() {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                    }
+                });
+
+                let lang = '';
+                let imdb_id = $('#imdb_id').val();
+
+                if ($('#my').is(':checked')) {
+                    lang = 'my';
+                } else {
+                    lang = 'en-US';
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: "{{ route('tmdb.fetch') }}",
+                    data: {
+                        lang,
+                        imdb_id
+                    },
+                    success: function(response) {
+                        console.log(response);
+                        if (response.success) {
+                            $('#success-alert').show();
+                            let data = response.data;
+                            let title = data.title;
+                            let slug = makeSlug(title);
+                            let imdb_rating = data.vote_average;
+                            let release_date = data.release_date;
+                            let runtime = data.runtime;
+                            let overview = data.overview;
+                            let youtubeTrailers = data.trailers.youtube;
+
+                            let youtube_trailer = youtubeTrailers.find(function(trailer) {
+                                return trailer.name === "Official Trailer";
+                            }).source;
+
+
+                            $('#title').val(title);
+                            $('#overview').val(overview);
+
+                        }
+
+                        if (!response.success) {
+                            $('#error-alert').show();
+                        }
+                    }
+                });
+            });
         });
     </script>
 @endsection

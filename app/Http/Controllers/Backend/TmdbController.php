@@ -13,9 +13,17 @@ class TmdbController extends Controller
 
     public function fetch()
     {
-        // $data = $request->validated();
-        $data['tmdbid'] = '558449';
-        if ($result = $this->getPopularStars()) {
+        // $data['tmdbid'] = '558449';
+        if ($result = $this->getMoive(request('imdb_id'), request('lang'))) {
+            return  $this->sendResponse($result, 'Successfully fetched');
+        } else {
+            return  $this->sendError('Something went wrong.');
+        }
+    }
+
+    public function fetch2()
+    {
+        if ($result = $this->getMoive('558449')) {
             return  $this->sendResponse($result, 'Successfully fetched');
         } else {
             return  $this->sendError('Something went wrong.');

@@ -8,7 +8,7 @@ use GuzzleHttp\Client;
 trait TMDB
 {
 
-  public function getMoive($tmdbid)
+  public function getMoive($tmdbid, $lang = 'en-US')
   {
     try {
       $client = new Client();
@@ -17,7 +17,7 @@ trait TMDB
       $response = $client->request('GET', $endPoint, [
         'query' => [
           'api_key' => config('tmdb.api_key'),
-          'language' => 'en-US', //en-US
+          'language' => $lang, //en-US
           'append_to_response' => 'credits,trailers',
           'include_adult' => false
         ],

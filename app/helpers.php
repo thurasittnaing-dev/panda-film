@@ -62,3 +62,13 @@ if (!function_exists('getVideoQualities')) {
     return VideoQuality::all();
   }
 }
+
+if (!function_exists('slugMake')) {
+  function slugMake($inputString)
+  {
+    $decodedString = urldecode($inputString);
+    $lowercaseString = strtolower($decodedString);
+    $cleanedString = str_replace(' ', '-', $lowercaseString);
+    return $cleanedString;
+  }
+}
